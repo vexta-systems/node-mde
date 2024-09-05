@@ -1,7 +1,7 @@
 # Node MD-e
 
-[![npm version](https://img.shields.io/npm/v/node-mde.svg)](https://www.npmjs.com/package/@vexta-systems/node-mde)
-[![npm downloads](https://img.shields.io/npm/dt/node-mde.svg)](https://npm-stat.com/charts.html?package=@vexta-systems/node-mde)
+[![npm version](https://img.shields.io/npm/v/@vexta-systems/node-mde.svg)](https://www.npmjs.com/package/@vexta-systems/node-mde)
+[![npm downloads](https://img.shields.io/npm/dt/@vexta-systems/node-mde.svg)](https://npm-stat.com/charts.html?package=@vexta-systems/node-mde)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/@vexta-systems/node-mde/blob/main/LICENSE)
 [![Package Quality](https://packagequality.com/shield/@vexta-systems/node-mde.svg)](https://packagequality.com/#?package=@vexta-systems/node-mde)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vexta-systems_node-mde&metric=alert_status)](https://sonarcloud.io/dashboard?id=vexta-systems_node-mde)
