@@ -36,7 +36,7 @@ Essa biblioteca permite consultar a relação das notas fiscais emitidas contra 
 ## Instalação
 
 ```sh
-$ npm i node-mde
+$ npm i @vexta-systems/node-mde
 ```
 
 ## Pré-Requisitos
@@ -85,7 +85,7 @@ new DistribuicaoNFe(config)
 #### Exemplo
 
 ```js
-const { DistribuicaoNFe } = require('node-mde')
+const { DistribuicaoNFe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoNFe({
@@ -142,7 +142,7 @@ console.log(consulta)
 #### Exemplo
 
 ```js
-const { DistribuicaoNFe } = require('node-mde')
+const { DistribuicaoNFe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoNFe({
@@ -195,7 +195,7 @@ console.log(consulta)
 #### Exemplo
 
 ```js
-const { DistribuicaoNFe } = require('node-mde')
+const { DistribuicaoNFe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoNFe({
@@ -267,7 +267,7 @@ new DistribuicaoCTe(config)
 #### Exemplo
 
 ```js
-const { DistribuicaoCTe } = require('node-mde')
+const { DistribuicaoCTe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoCTe({
@@ -324,7 +324,7 @@ console.log(consulta)
 #### Exemplo
 
 ```js
-const { DistribuicaoCTe } = require('node-mde')
+const { DistribuicaoCTe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoCTe({
@@ -377,7 +377,7 @@ console.log(consulta)
 #### Exemplo
 
 ```js
-const { DistribuicaoCTe } = require('node-mde')
+const { DistribuicaoCTe } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const distribuicao = new DistribuicaoCTe({
@@ -453,7 +453,7 @@ new RecepcaoEvento(config)
 #### Exemplo
 
 ```js
-const { RecepcaoEvento } = require('node-mde')
+const { RecepcaoEvento } = require('@vexta-systems/node-mde')
 const fs = require('fs')
 
 const recepcao = new RecepcaoEvento({

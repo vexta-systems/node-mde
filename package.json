@@ -37,7 +37,7 @@
     "distribuicaocte"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "author": "Lucas Melo <lucashpmelo94@gmail.com>",
   "license": "MIT",
