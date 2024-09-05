@@ -5,5 +5,8 @@ src
 scripts
 test
 package-lock.json
+pnpm-lock.yaml
 tsconfig.json
 prettier.config.js
+README-Aux.md
+meuTeste
