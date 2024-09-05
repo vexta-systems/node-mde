@@ -3,13 +3,16 @@
 [![npm version](https://img.shields.io/npm/v/@vexta-systems/node-mde.svg)](https://www.npmjs.com/package/@vexta-systems/node-mde)
 [![npm downloads](https://img.shields.io/npm/dt/@vexta-systems/node-mde.svg)](https://npm-stat.com/charts.html?package=@vexta-systems/node-mde)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/@vexta-systems/node-mde/blob/main/LICENSE)
-[![Package Quality](https://packagequality.com/shield/@vexta-systems/node-mde.svg)](https://packagequality.com/#?package=@vexta-systems/node-mde)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vexta-systems_node-mde&metric=alert_status)](https://sonarcloud.io/dashboard?id=vexta-systems_node-mde)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@vexta-systems/node-mde/badge.svg)](https://snyk.io/test/npm/@vexta-systems/node-mde)
 
-Biblioteca para consumo dos Web Services da Sefaz de Distribuição de DF-e e Evento de Manifestação do Destinatário.
+<!-- [![Package Quality](https://packagequality.com/shield/@vexta-systems/node-mde.svg)](https://packagequality.com/#?package=@vexta-systems/node-mde) -->
 
-Essa biblioteca permite consultar a relação das notas fiscais emitidas contra um determinado CNPJ/CPF e realizar o envio do evento de manifestação, podendo assim, baixar o XML da NF-e.
+Biblioteca para consumo dos Web Services da SEFAZ de Distribuição de DF-e e Evento de Manifestação do Destinatário.
+
+Essa biblioteca faz o consumo do Web Service `NFeDistribuicaoDFe` da [SEFAZ](https://www.nfe.fazenda.gov.br/portal/principal.aspx) e assim consultar a relação das notas fiscais emitidas contra um determinado CNPJ/CPF e realizar o envio do evento de manifestação, podendo assim, baixar o XML da NF-e.
+
+Também permite o consumo do Web Service `CTeDistribuicaoDFe` que disponibiliza para os atores do [CT-e/ CT-eOS/GTV-e](https://www.cte.fazenda.gov.br/portal/principal.aspx) informações e documentos fiscais eletrônicos de seu interesse, quer seja como emitentes, remetentes, destinatários, expedidores, recebedores, tomadores ou terceiros relacionado ao serviço.
 
 ## Índice
 

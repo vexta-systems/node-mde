@@ -85,14 +85,6 @@ class RetornoHelper {
       }
     })
 
-    // let menor = '999999999999999',
-    //   maior = '000000000000000'
-    // retorno.data.docZip.forEach((dz) => {
-    //   if (menor > dz.nsu) menor = dz.nsu
-    //   if (maior < dz.nsu) maior = dz.nsu
-    // })
-    // console.log('menor', menor)
-    // console.log('maior', maior)
     if (retornos.length > 1) {
       retorno.resXml = 'united'
       retorno.reqXml = 'united'
