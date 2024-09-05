@@ -82,8 +82,8 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 certs
-# dist
-# lib
+dist
+lib
 
 # Gatsby files
 .cache/
