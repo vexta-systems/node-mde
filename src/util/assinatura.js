@@ -1,6 +1,19 @@
 'use strict'
 
 const SignedXml = require('xml-crypto').SignedXml
+const HashAlgorithms = [
+  'http://www.w3.org/2000/09/xmldsig#sha1',
+  'http://www.w3.org/2001/04/xmlenc#sha256',
+  'http://www.w3.org/2001/04/xmlenc#sha512',
+]
+
+const SignatureAlgorithms = [
+  'http://www.w3.org/2000/09/xmldsig#rsa-sha1',
+  'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512',
+  // Disabled by default due to key confusion concerns.
+  // 'http://www.w3.org/2000/09/xmldsig#hmac-sha1'
+]
 
 class InfoProvider {
   /**
@@ -30,13 +43,15 @@ class Assinatura {
       'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
       'http://www.w3.org/TR/2001/REC-xml-c14n-20010315',
     ]
-    const sig = new SignedXml()
+    const sig = new SignedXml({
+      publicCert: cert,
+      privateKey: key,
+      canonicalizationAlgorithm: transforms[1],
+      signatureAlgorithm: SignatureAlgorithms[0],
+    })
 
-    sig.keyInfoProvider = new InfoProvider(cert)
-
-    sig.addReference(xpath, transforms)
-    sig.canonicalizationAlgorithm = transforms[1]
-    sig.signingKey = key
+    sig.addReference({ xpath, transforms, digestAlgorithm: HashAlgorithms[0] })
+    // sig.signingKey = key
 
     sig.computeSignature(xml, {
       location: {
