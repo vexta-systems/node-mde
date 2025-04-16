@@ -30,11 +30,13 @@ class DistribuicaoCTeController {
       if (retorno) {
         retornos.push(retorno)
       }
-
+      // console.log(`CTe -> ultNSU: ${retorno.data.ultNSU}; maxNSU: ${retorno.data.maxNSU}; cStat: ${retorno.data.cStat} - ${retorno.data.xMotivo}`)
       temMais =
         String(process.env.DEBUG || 'false').toLowerCase() === 'true'
           ? false
           : retorno.data.cStat === '138' &&
+            !opts.nsu &&
+            !opts.chNFe &&
             Number(retorno.data.ultNSU) < Number(retorno.data.maxNSU)
     }
     const retornosUnidos = RetornoHelper.juntarRetornos(retornos)

@@ -20,10 +20,10 @@ declare const validator: Readonly<{
             cert?: Buffer | string;
             key?: Buffer | string;
         }): {
-            pfx: Buffer;
+            pfx: Buffer<ArrayBufferLike>;
             passphrase: string;
-            cert: string | Buffer;
-            key: string | Buffer;
+            cert: string | Buffer<ArrayBufferLike>;
+            key: string | Buffer<ArrayBufferLike>;
             error: string;
             isValid(): boolean;
             getValues(): {
