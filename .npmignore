@@ -87,6 +87,7 @@ typings/
 certs
 src
 scripts
+test
 
 # Gatsby files
 .cache/
