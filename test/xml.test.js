@@ -22,7 +22,7 @@ const JSON_TESTE = {
     '@_xmlns': 'http://www.portalfiscal.inf.br/nfe/wsdl/NFeDistribuicaoDFe',
   },
 }
-const ENVELOPAR_TESTE = `<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body>${XML_TESTE}</soap12:Body></soap12:Envelope>`
+const ENVELOPAR_TESTE = `<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Header/><soap12:Body>${XML_TESTE}</soap12:Body></soap12:Envelope>`
 
 describe('Xml', function () {
   describe('#jsonToXml()', function () {

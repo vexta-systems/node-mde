@@ -15,19 +15,19 @@ const SignatureAlgorithms = [
   // 'http://www.w3.org/2000/09/xmldsig#hmac-sha1'
 ]
 
-class InfoProvider {
-  /**
-   *
-   * @param {string} cert
-   */
-  constructor(cert) {
-    this.getKeyInfo = function () {
-      return `<X509Data><X509Certificate>${cert
-        .split('-----')[2]
-        .replace(/[\r\n]/g, '')}</X509Certificate></X509Data>`
-    }
-  }
-}
+// class InfoProvider {
+//   /**
+//    *
+//    * @param {string} cert
+//    */
+//   constructor(cert) {
+//     this.getKeyInfo = function () {
+//       return `<X509Data><X509Certificate>${cert
+//         .split('-----')[2]
+//         .replace(/[\r\n]/g, '')}</X509Certificate></X509Data>`
+//     }
+//   }
+// }
 
 class Assinatura {
   /**

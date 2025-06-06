@@ -9,19 +9,20 @@ class Instance {
   constructor(opts) {
     const { baseURL, ca, cert, key } = opts
 
-    const AgentOptions = Object.assign(
-      {
+    const AgentOptions = {
+      ...{
         cert: cert,
         key: key,
         ca: ca,
       },
-      { ...opts.httpsOptions }
-    )
+      ...opts.httpsOptions,
+    }
 
     const httpsAgent = new https.Agent(AgentOptions)
 
-    const requestOptions = Object.assign(
-      {
+    const requestOptions = {
+      ...opts.requestOptions,
+      ...{
         baseURL: baseURL,
         headers: {
           'User-Agent': `@Vexta/node-mde/${VERSION}`,
@@ -30,8 +31,7 @@ class Instance {
         httpsAgent: httpsAgent,
         timeout: 60000,
       },
-      { ...opts.requestOptions }
-    )
+    }
 
     const instance = axios.create({
       ...requestOptions,
@@ -51,6 +51,25 @@ class Instance {
 
       return { status, data }
     } catch (error) {
+      // console.error('Vexta/node-mde', error.message || error.mensagem || '?')
+      /*
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error('response.data =>', error.response.data)
+        console.error('response.status =>', error.response.status)
+        console.error('response.headers =>', error.response.headers)
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.error('request =>', error.request._currentUrl || error.request)
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error.message =>', error.message)
+      }
+      console.error('error.config =>', error.config)
+*/
       if (error.response) {
         const { status, data } = error.response
 

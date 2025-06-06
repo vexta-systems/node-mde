@@ -58,7 +58,7 @@ class RetornoHelper {
 
     retornos.forEach((ret, index) => {
       if (index === 0) {
-        retorno = Object.assign(retorno, ret)
+        retorno = { ...retorno, ...ret }
       }
       if (retorno.data && ret.data) {
         if (retorno.data.cStat !== '138') {

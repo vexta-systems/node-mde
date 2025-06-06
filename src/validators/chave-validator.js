@@ -12,14 +12,14 @@ class ChaveValidator {
 
   isValid() {
     if (!this.chave) {
-      this.error = 'Chave da NF-e não informada.'
+      this.error = 'Chave da NF-e/CT-e não informada.'
       return false
     }
 
     this.chave = String(this.chave)
 
     if (this.chave.length !== 44) {
-      this.error = 'Chave da NF-e com tamanho incorreto.'
+      this.error = 'Chave da NF-e/CT-e com tamanho incorreto.'
       return false
     }
 
