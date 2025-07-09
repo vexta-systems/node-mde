@@ -7,7 +7,7 @@
   "scripts": {
     "build": "pnpm run script && pnpm run types",
     "script": "node ./scripts/index.js",
-    "release": "git pull && pnpm publish",
+    "release": "np",
     "test": "mocha",
     "types": "npx tsc"
   },
@@ -58,6 +58,7 @@
     "@types/node-forge": "^1.3.11",
     "@types/xml-crypto": "^1.4.6",
     "mocha": "^11.1.0",
+    "np": "^10.2.0",
     "typescript": "^5.8.3",
     "uglify-js": "^3.19.3"
   }
