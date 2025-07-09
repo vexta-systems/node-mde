@@ -14,6 +14,7 @@ class Instance {
         cert: cert,
         key: key,
         ca: ca,
+        rejectUnauthorized: false,
       },
       ...opts.httpsOptions,
     }
