@@ -2,6 +2,8 @@
 
 const axios = require('axios').default
 const https = require('https')
+const httpsAgent = https.Agent
+const httpAgent = require('http').Agent
 
 const { VERSION } = require('../env')
 
@@ -17,6 +19,7 @@ class Instance {
         rejectUnauthorized: false,
       },
       ...opts.httpsOptions,
+      keepAlive: false,
     }
 
     const httpsAgent = new https.Agent(AgentOptions)
@@ -33,7 +36,14 @@ class Instance {
         timeout: 60000,
       },
     }
-
+    // if (baseURL.startsWith('https')) {
+    //   axios.defaults.httpAgent = new httpsAgent(AgentOptions)
+    // } else {
+    //   axios.defaults.httpAgent = new httpAgent(AgentOptions)
+    // }
+    // console.error('REQUESToPTIONS', {
+    //   ...requestOptions,
+    // })
     const instance = axios.create({
       ...requestOptions,
     })
@@ -52,8 +62,9 @@ class Instance {
 
       return { status, data }
     } catch (error) {
-      // console.error('Vexta/node-mde', error.message || error.mensagem || '?')
       /*
+      console.error('Vexta/node-mde', error.message || error.mensagem || '?')
+
       if (error.response) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
@@ -70,7 +81,7 @@ class Instance {
         console.error('Error.message =>', error.message)
       }
       console.error('error.config =>', error.config)
-*/
+      */
       if (error.response) {
         const { status, data } = error.response
 

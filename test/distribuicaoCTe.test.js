@@ -15,7 +15,6 @@ describe('DistribuicaoCTe', function () {
   describe('#constructor()', function () {
     it('Cert não informado', function () {
       const config = {}
-
       assert.throws(() => {
         new DistribuicaoCTe(config)
       }, /^Error: Cert não informado.$/)

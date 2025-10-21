@@ -9,11 +9,12 @@ const certificado = {
   cert: fs.readFileSync('certs/cert.pem', 'utf8'),
   key: fs.readFileSync('certs/key.pem', 'utf8'),
 }
+let tpAmb
 
 describe('SefazService', function () {
   describe('#requestNFe()', function () {
     it('DistribuicaoNFe sem informar a Cadeia de Certificados', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = DISTRIBUICAONFE[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -35,7 +36,7 @@ describe('SefazService', function () {
     })
 
     it('DistribuicaoNFe sem informar cert.pem e key.pem', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = DISTRIBUICAONFE[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -54,8 +55,8 @@ describe('SefazService', function () {
       assert.equal(retorno.status, 403)
     })
 
-    it('DistribuicaoNFe', async function () {
-      const tpAmb = '2'
+    it('DistribuicaoNFe tpAmb = "1"', async function () {
+      tpAmb = '1'
       const baseURL = DISTRIBUICAONFE[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -77,7 +78,7 @@ describe('SefazService', function () {
     })
 
     it('DistribuicaoNFe tpAmb = "2"', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = DISTRIBUICAONFE[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -95,35 +96,32 @@ describe('SefazService', function () {
       const config = { method: 'GET' }
 
       const retorno = await client.request(config)
-
+      // console.error('retorno.data=>', retorno.data)
       assert.equal(retorno.status, 200)
     })
 
-    // it('NFeRecepcaoEvento4 sem informar a Cadeia de Certificados', async function () {
-    //   const tpAmb = '2'
-    //   const baseURL = RECEPCAO[tpAmb]
-    //   const requestOptions = {}
-    //   const httpsOptions = {}
+    it('NFeRecepcaoEvento4 sem informar a Cadeia de Certificados', async function () {
+      tpAmb = '2'
+      const baseURL = RECEPCAO[tpAmb]
+      const requestOptions = {}
+      const httpsOptions = {}
 
-    //   const client = new SefazService({
-    //     baseURL: baseURL,
-    //     requestOptions: requestOptions,
-    //     httpsOptions: httpsOptions,
-    //   })
+      const client = new SefazService({
+        baseURL: baseURL,
+        requestOptions: requestOptions,
+        httpsOptions: httpsOptions,
+      })
 
-    //   const config = { method: 'GET' }
+      const config = { method: 'GET' }
 
-    //   const retorno = await client.request(config)
+      const retorno = await client.request(config)
 
-    //   assert.equal(retorno.status, 502)
-    //   assert.equal(
-    //     retorno.data,
-    //     '<error>unable to get local issuer certificate</error>'
-    //   )
-    // })
+      assert.equal(retorno.status, 403)
+      // assert.equal(retorno.data,'<error>unable to get local issuer certificate</error>')
+    })
 
     it('NFeRecepcaoEvento4 sem informar cert.pem e key.pem', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = RECEPCAO[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -143,7 +141,7 @@ describe('SefazService', function () {
     })
 
     it('NFeRecepcaoEvento4 tpAmb = "1"', async function () {
-      const tpAmb = '1'
+      tpAmb = '1'
       const baseURL = RECEPCAO[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -166,7 +164,7 @@ describe('SefazService', function () {
     })
 
     it('NFeRecepcaoEvento4 tpAmb = "2"', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = RECEPCAO[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -231,7 +229,7 @@ describe('SefazService', function () {
     })
 
     it('DistribuicaoCTe', async function () {
-      const tpAmb = '2'
+      tpAmb = '2'
       const baseURL = DISTRIBUICAOCTE[tpAmb]
       const requestOptions = {}
       const httpsOptions = {}
@@ -247,131 +245,6 @@ describe('SefazService', function () {
       })
 
       const config = { method: 'GET' }
-      const retorno = await client.request(config)
-
-      assert.equal(retorno.status, 200)
-    })
-
-    it('NFeRecepcaoEvento4 sem informar a Cadeia de Certificados', async function () {
-      const baseURL = RECEPCAO['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
-      const retorno = await client.request(config)
-
-      assert.equal(retorno.status, 403)
-      // assert.equal(
-      //   retorno.data,
-      //   '<error>unable to get local issuer certificate</error>'
-      // )
-    })
-
-    it('NFeRecepcaoEvento4 sem informar cert.pem e key.pem', async function () {
-      const baseURL = RECEPCAO['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        ca: CA,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
-      const retorno = await client.request(config)
-
-      assert.equal(retorno.status, 403)
-    })
-
-    it('NFeRecepcaoEvento4', async function () {
-      const baseURL = RECEPCAO['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        ca: CA,
-        cert: certificado.cert,
-        key: certificado.key,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
-      const retorno = await client.request(config)
-
-      assert.equal(retorno.status, 200)
-    })
-  })
-
-  describe('#requestCTe()', function () {
-    it('DistribuicaoCTe sem informar a Cadeia de Certificados', async function () {
-      const baseURL = DISTRIBUICAOCTE['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
-      const retorno = await client.request(config)
-      assert.equal(retorno.status, 403)
-      // assert.equal(
-      //   retorno.data,
-      //   '<error>unable to get local issuer certificate</error>'
-      // )
-    })
-
-    it('DistribuicaoCTe sem informar cert.pem e key.pem', async function () {
-      const baseURL = DISTRIBUICAOCTE['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        ca: CA,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
-      const retorno = await client.request(config)
-
-      assert.equal(retorno.status, 403)
-    })
-
-    it('DistribuicaoCTe', async function () {
-      const baseURL = DISTRIBUICAOCTE['2']
-      const requestOptions = {}
-      const httpsOptions = {}
-
-      const client = new SefazService({
-        baseURL: baseURL,
-        ca: CA,
-        cert: certificado.cert,
-        key: certificado.key,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
-
-      const config = { method: 'GET' }
-
       const retorno = await client.request(config)
 
       assert.equal(retorno.status, 200)
